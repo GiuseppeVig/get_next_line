@@ -2,16 +2,10 @@
 
 char	*get_next_line(int fd)
 {
-    int		size;
-    char*	line;
+    static char*	line;
 
-	size = ft_getsize(fd);
-	line = (char *)malloc(size + 1);
-	if (!(read(fd, line, size)))
+	if (fd < 0 || BUFFER_SIZE < 0)
 		return (0);
-	if (!line)
-		return (0);
-	read(fd, line, size);
-	free(line);
+	line = get_line(fd);
 	return (line);
 }
