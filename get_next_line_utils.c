@@ -3,15 +3,16 @@
 int	ft_getsize(int fd)
 {
 	static int	i;
-	char		c;
+	char		*c;
 	
 	i = 0;
+	c = (char *)malloc(BUFFER_SIZE + 1);
+	read(fd, c, 1);
 	if (!(read(fd, c, 1)))
 		return (0);
-	c = read(fd, c, 1);
-	while (c != '\n' || c != '\0')
+	while (c[i] != '\n' || c)
 	{
-		c = read(fd, c, 1 + i);
+		read(fd, c, 1 + i);
 		i ++;
 	}
 	i ++;
