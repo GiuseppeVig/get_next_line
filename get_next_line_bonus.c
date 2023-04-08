@@ -1,19 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gvigilan <gvigilan@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/07 19:01:13 by gvigilan          #+#    #+#             */
-/*   Updated: 2023/04/07 19:01:13 by gvigilan         ###   ########.fr       */
+/*   Created: 2023/04/08 17:23:39 by gvigilan          #+#    #+#             */
+/*   Updated: 2023/04/08 17:23:39 by gvigilan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
+
+#include "get_next_line_bonus.h"
 
 char	*read_line(int fd, char *c)
 {
@@ -41,23 +39,15 @@ char	*read_line(int fd, char *c)
 
 char	*get_next_line(int fd)
 {
-	static char	*line;
+	static char	*line[4096];
 	char		*output;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	line = read_line(fd, line);
+	line[fd] = read_line(fd, line[fd]);
 	if (!line)
 		return (0);
-	output = get_output(line);
-	line = reset_line(line);
+	output = get_output(line[fd]);
+	line[fd] = reset_line(line[fd]);
 	return (output);
-}
-
-int	main(void)
-{
-	int test = open("tests/testfile",  O_RDONLY);
-	char *line = get_next_line(test);
-	printf("%s\n", line);
-	return (0);
 }

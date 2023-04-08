@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gvigilan <gvigila@student.42roma.it>       +#+  +:+       +#+        */
+/*   By: gvigilan <gvigilan@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/07 18:59:58 by gvigilan          #+#    #+#             */
-/*   Updated: 2023/04/07 18:59:58 by gvigilan         ###   ########.fr       */
+/*   Created: 2023/04/08 17:22:25 by gvigilan          #+#    #+#             */
+/*   Updated: 2023/04/08 17:22:25 by gvigilan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <stdlib.h>
 # include <unistd.h>
