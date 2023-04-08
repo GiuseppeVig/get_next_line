@@ -16,7 +16,7 @@
 char	*read_line(int fd, char *c)
 {
 	char	*str;
-	size_t	i;
+	int		i;
 
 	str = (char *)malloc(BUFFER_SIZE + 1);
 	if (!str)
@@ -25,7 +25,7 @@ char	*read_line(int fd, char *c)
 	while (!has_new_line(c) && i != 0)
 	{
 		i = read(fd, str, BUFFER_SIZE);
-		if ((int)i == -1)
+		if (i == -1)
 		{
 			free(str);
 			return (0);
@@ -45,7 +45,7 @@ char	*get_next_line(int fd)
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
 	line[fd] = read_line(fd, line[fd]);
-	if (!line)
+	if (!line[fd])
 		return (0);
 	output = get_output(line[fd]);
 	line[fd] = reset_line(line[fd]);

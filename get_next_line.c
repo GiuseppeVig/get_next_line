@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gvigilan <gvigilan@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: gvigilan <gvigilan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/07 19:01:13 by gvigilan          #+#    #+#             */
 /*   Updated: 2023/04/07 19:01:13 by gvigilan         ###   ########.fr       */
@@ -11,14 +11,11 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
 
 char	*read_line(int fd, char *c)
 {
 	char	*str;
-	size_t	i;
+	int		i;
 
 	str = (char *)malloc(BUFFER_SIZE + 1);
 	if (!str)
@@ -27,7 +24,7 @@ char	*read_line(int fd, char *c)
 	while (!has_new_line(c) && i != 0)
 	{
 		i = read(fd, str, BUFFER_SIZE);
-		if ((int)i == -1)
+		if (i == -1)
 		{
 			free(str);
 			return (0);
@@ -52,12 +49,4 @@ char	*get_next_line(int fd)
 	output = get_output(line);
 	line = reset_line(line);
 	return (output);
-}
-
-int	main(void)
-{
-	int test = open("tests/testfile",  O_RDONLY);
-	char *line = get_next_line(test);
-	printf("%s\n", line);
-	return (0);
 }
