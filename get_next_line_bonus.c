@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gvigilan <gvigilan@student.42roma.it>      +#+  +:+       +#+        */
+/*   By: gvigilan <gvigilan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/08 17:23:39 by gvigilan          #+#    #+#             */
-/*   Updated: 2023/04/08 17:23:39 by gvigilan         ###   ########.fr       */
+/*   Created: 2023/04/09 19:38:19 by gvigilan          #+#    #+#             */
+/*   Updated: 2023/04/09 19:38:19 by gvigilan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "get_next_line_bonus.h"
 

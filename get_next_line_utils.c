@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gvigilan <gvigilan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/08 14:54:30 by gvigilan          #+#    #+#             */
-/*   Updated: 2023/04/08 14:54:30 by gvigilan         ###   ########.fr       */
+/*   Created: 2023/04/09 19:38:47 by gvigilan          #+#    #+#             */
+/*   Updated: 2023/04/09 19:38:47 by gvigilan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,14 @@ char	*get_output(char *total)
 	size_t	i;
 	char	*out;
 
+	if (!total)
+		return (0);
 	i = 0;
 	while (total[i] && total[i] != '\n')
 		i ++;
 	out = (char *)malloc(sizeof(char) * i + 2);
+	if (!out)
+		return (0);
 	i = 0;
 	while (total[i] && total[i] != '\n')
 	{
@@ -43,7 +47,7 @@ char	*get_output(char *total)
 	return (out);
 }
 
-int	has_new_line(char *s)
+char	*has_new_line(char *s)
 {
 	int	i;
 
@@ -52,8 +56,8 @@ int	has_new_line(char *s)
 		return (0);
 	while (s[i])
 	{
-		if (s[i] == '\n')
-			return (1);
+		if (s[i] == ('\n'))
+			return ((char *)&s[i]);
 		i ++;
 	}
 	return (0);
@@ -93,6 +97,8 @@ char	*reset_line(char *str)
 	size_t	i;
 	size_t	j;
 
+	if (!str)
+		return (0);
 	i = 0;
 	while (str[i] && str[i] != '\n')
 		i++;

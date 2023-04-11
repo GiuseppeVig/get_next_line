@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gvigilan <gvigilan@student.42.fr>      +#+  +:+       +#+        */
+/*   By: gvigilan <gvigilan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/08 17:23:07 by gvigilan          #+#    #+#             */
-/*   Updated: 2023/04/08 17:23:07 by gvigilan         ###   ########.fr       */
+/*   Created: 2023/04/09 19:38:37 by gvigilan          #+#    #+#             */
+/*   Updated: 2023/04/09 19:38:37 by gvigilan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
-
 
 size_t	ft_strlen(char *str)
 {
@@ -44,17 +43,17 @@ char	*get_output(char *total)
 	return (out);
 }
 
-int	has_new_line(char *s)
+char	*has_new_line(char *s)
 {
-	int	i;
+int	i;
 
 	i = 0;
 	if (!s)
 		return (0);
 	while (s[i])
 	{
-		if (s[i] == '\n')
-			return (1);
+		if (s[i] == ('\n'))
+			return ((char *)&s[i]);
 		i ++;
 	}
 	return (0);

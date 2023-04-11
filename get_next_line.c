@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gvigilan <gvigilan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/07 19:01:13 by gvigilan          #+#    #+#             */
-/*   Updated: 2023/04/07 19:01:13 by gvigilan         ###   ########.fr       */
+/*   Created: 2023/04/09 19:38:57 by gvigilan          #+#    #+#             */
+/*   Updated: 2023/04/09 19:38:57 by gvigilan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*read_line(int fd, char *c)
 		if (i == -1)
 		{
 			free(str);
-			return (0);
+			return (c);
 		}
 		str[i] = '\0';
 		c = ft_join(c, str);
@@ -45,8 +45,17 @@ char	*get_next_line(int fd)
 		return (0);
 	line = read_line(fd, line);
 	if (!line)
+	{
+		free(line);
 		return (0);
+	}
 	output = get_output(line);
 	line = reset_line(line);
+	if (!output)
+	{
+		free(line);
+		free(output);
+		return (0);
+	}
 	return (output);
 }
