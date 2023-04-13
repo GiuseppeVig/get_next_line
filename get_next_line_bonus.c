@@ -33,6 +33,11 @@ char	*read_line(int fd, char *c)
 		c = ft_join(c, str);
 	}
 	free(str);
+	if (c[0] == '\0')
+	{
+		free(c);
+		return (0);
+	}
 	return (c);
 }
 

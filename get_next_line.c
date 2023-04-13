@@ -33,6 +33,11 @@ char	*read_line(int fd, char *c)
 		c = ft_join(c, str);
 	}
 	free(str);
+	if (c[0] == '\0')
+	{
+		free(c);
+		return (0);
+	}
 	return (c);
 }
 
@@ -51,11 +56,5 @@ char	*get_next_line(int fd)
 	}
 	output = get_output(line);
 	line = reset_line(line);
-	if (!output)
-	{
-		free(line);
-		free(output);
-		return (0);
-	}
 	return (output);
 }
